@@ -41,6 +41,8 @@ PRODUCT_COPY_FILES := \
     $(LOCAL_KERNEL):kernel
 
 PRODUCT_COPY_FILES += \
+    device/lge/hammerhead/configs/init.qcom.post_boot.sh:system/bin/init.qcom.post_boot.sh \
+    device/lge/hammerhead/configs/96-postboot.sh:system/addon.d/96-postboot.sh \
     device/lge/hammerhead/init.hammerhead.rc:root/init.hammerhead.rc \
     device/lge/hammerhead/init.hammerhead.usb.rc:root/init.hammerhead.usb.rc \
     device/lge/hammerhead/fstab.hammerhead:root/fstab.hammerhead \
