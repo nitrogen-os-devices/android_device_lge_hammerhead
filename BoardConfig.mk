@@ -113,6 +113,9 @@ TARGET_RELEASETOOLS_EXTENSIONS := device/lge/hammerhead
 
 BOARD_HAL_STATIC_LIBRARIES := libdumpstate.hammerhead
 
+# Some of our vendor libs have text relocations
+TARGET_NEEDS_PLATFORM_TEXTRELS := true
+
 BOARD_SEPOLICY_DIRS += device/lge/hammerhead/sepolicy
 
 HAVE_ADRENO_SOURCE:= false
