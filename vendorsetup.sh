@@ -1,5 +1,6 @@
 #
 # Copyright 2013 The Android Open Source Project
+# Copyright 2016 Nitrogen Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,4 +15,6 @@
 # limitations under the License.
 #
 
-add_lunch_combo aosp_hammerhead-userdebug
+add_lunch_combo nitrogen_hammerhead-user
+add_lunch_combo nitrogen_hammerhead-userdebug
+add_lunch_combo nitrogen_hammerhead-end
