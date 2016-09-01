@@ -21,6 +21,7 @@ import init.hammerhead.diag.rc
 on early-init
     mount debugfs debugfs /sys/kernel/debug
     chown system system /sys/kernel/debug/kgsl/proc
+    ln -s /system/vendor /vendor
 
 on init
     # Set permissions for persist partition
