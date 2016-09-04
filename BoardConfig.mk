@@ -23,6 +23,8 @@ TARGET_CPU_VARIANT := krait
 TARGET_NO_BOOTLOADER := true
 
 TARGET_KERNEL_CONFIG := hammerhead_defconfig
+TARGET_VARIANT_CONFIG := hammerhead_defconfig
+TARGET_SELINUX_CONFIG := hammerhead_defconfig
 TARGET_KERNEL_SOURCE := kernel/lge/hammerhead
 BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 BOARD_KERNEL_BASE := 0x00000000
