@@ -1,4 +1,4 @@
-#!/system/bin/sh
+﻿#!/system/bin/sh
 
 #
 # Copyright 2016 Nitrogen Project
@@ -54,5 +54,5 @@ echo -n 3072 > /sys/devices/virtual/bdi/179:0/read_ahead_kb
 if [ -f /system/etc/nitrogen.sh ]; then
 	# Alee 2 mins after boot
 	sleep 120
-	shell /system/etc/nitrogen.sh
+	. /system/etc/nitrogen.sh
 fi;
