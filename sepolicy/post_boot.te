@@ -1,0 +1,11 @@
+type post_boot, domain;
+type post_boot_exec, exec_type, file_type;
+
+init_daemon_domain(post_boot)
+
+#============= post_boot ==============
+allow post_boot devpts:chr_file { rw_file_perms };
+allow post_boot shell_exec:file { rx_file_perms };
+allow post_boot system_file:file { rx_file_perms };
+allow post_boot toolbox_exec:file { rx_file_perms };
+allow post_boot self:process setcurrent;
