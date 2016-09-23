@@ -1,0 +1,12 @@
+type qcom_post_boot, domain;
+type qcom_post_boot_exec, exec_type, file_type;
+
+init_daemon_domain(qcom_post_boot)
+
+#============= qcom_post_boot ==============
+allow qcom_post_boot devpts:chr_file { rw_file_perms };
+allow qcom_post_boot shell_exec:file { rx_file_perms };
+allow qcom_post_boot system_file:file { rx_file_perms };
+allow qcom_post_boot system_file:dir { r_dir_perms };
+allow qcom_post_boot toolbox_exec:file { rx_file_perms };
+allow qcom_post_boot self:process setcurrent;

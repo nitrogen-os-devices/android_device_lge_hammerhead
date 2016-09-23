@@ -124,8 +124,7 @@
 /system/vendor/bin/vss_init        u:object_r:vss_exec:s0
 /system/bin/time_daemon            u:object_r:time_exec:s0
 /system/bin/irsc_util              u:object_r:irsc_util_exec:s0
-/system/bin/init\.qcom\.post_boot\.sh u:object_r:post_boot_exec:s0
-/system/etc/nitrogen\.sh u:object_r:post_boot_exec:s0
+/system/bin/init\.qcom\.post_boot\.sh u:object_r:qcom_post_boot_exec:s0
 
 # Persist firmware filesystem
 /persist(/.*)?                    u:object_r:persist_file:s0

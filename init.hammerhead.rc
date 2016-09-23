@@ -355,7 +355,7 @@ service bdAddrLoader /system/bin/bdAddrLoader -f /persist/bluetooth/.bdaddr -h -
 #    oneshot
 #    keycodes 114 115 116
 
-service qcom-post-boot /system/bin/sh /system/bin/init.qcom.post_boot.sh
+service qcom_post_boot /system/bin/sh /system/bin/init.qcom.post_boot.sh
     class late_start
     user root
     disabled
@@ -391,4 +391,4 @@ service time_daemon /system/bin/time_daemon
     group root
 
 on property:sys.boot_completed=1
-    start qcom-post-boot
+    start qcom_post_boot
