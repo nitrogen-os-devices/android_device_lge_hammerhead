@@ -188,7 +188,7 @@ on post-fs-data
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
-    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/module/msm_thermal/core_control/enabled 1
     chmod 220 /sys/devices/system/cpu/mfreq
     chmod 664 /sys/devices/system/cpu/cpu1/online
     chmod 664 /sys/devices/system/cpu/cpu2/online
@@ -226,11 +226,11 @@ on charger
     write /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq 300000
     write /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq 300000
-    write /sys/module/msm_thermal/core_control/enabled 0
+    write /sys/module/msm_thermal/core_control/enabled 1
     write /sys/devices/system/cpu/cpu1/online 0
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
-    stop mpdecision
+    start mpdecision
 
 on property:sys.boot_completed=1
     # Enable Power modes
@@ -255,7 +255,7 @@ on property:sys.boot_completed=1
     write /sys/module/pm_8x60/modes/cpu1/retention/idle_enabled 1
     write /sys/module/pm_8x60/modes/cpu2/retention/idle_enabled 1
     write /sys/module/pm_8x60/modes/cpu3/retention/idle_enabled 1
-    stop mpdecision
+    start mpdecision
 
     # enable slimport detection
     write /sys/module/slimport/parameters/enable_irq 1
@@ -374,10 +374,9 @@ service ssr_ramdump /system/bin/subsystem_ramdump -m -t emmc
     disabled
 
 service thermal-engine /system/bin/thermal-engine-hh
-    class main
-    user root
-    group radio system
-    disabled
+   class main
+   user root
+   group radio system
 
 service vss_init /vendor/bin/vss_init
     class late_start
