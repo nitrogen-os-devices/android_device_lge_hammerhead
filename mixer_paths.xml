@@ -284,12 +284,106 @@
         <!-- <ctl name="IIR1 INP1 MUX" value="DEC4" /> -->
     </path>
 
-    <path name="speaker">
+    <path name="speaker-stereo">
+        <!-- chdloc: stereo version. On my device, 8 dB (8 ticks) of level delta between the earpiece and -->
+        <!-- main loudspeaker seems to be resulting in a balanced stereo image -->
+        <!-- chdloc: earpiece level; on my device, any value higher than 89 results in audible distortion (really, anything higher than 84 may cause additional distortion as it adds positive digital gain to the signal) -->
         <ctl name="SLIM RX1 MUX" value="AIF1_PB" />
-        <ctl name="SLIM_0_RX Channels" value="One" />
-        <ctl name="RX7 MIX1 INP1" value="RX1" />
-        <ctl name="RX7 Digital Volume" value="88" />
+        <ctl name="SLIM RX2 MUX" value="AIF1_PB" />
+        <ctl name="SLIM_0_RX Channels" value="Two" />
+        <!--        <ctl name="RX1 MIX1 INP1" value="RX1" /> -->
+        <!--        <ctl name="RX7 MIX1 INP2" value="RX2" /> -->
+    
         <ctl name="SPK DRV Volume" value="6" />
+        <ctl name="CLASS_H_DSM MUX" value="DSM_HPHL_RX1" />
+        <ctl name="DAC1 Switch" value="1" />
+        <!-- enabling IIR filter; coefficients can be modified on-the-fly with tinymix -->
+        <!-- RX1 plugs into the IIR1 mux and RX2 plugs into the IIR2 mux -->
+        <ctl name="IIR1 INP1 MUX" value="RX1" />
+        <ctl name="IIR2 INP1 MUX" value="RX2" />
+    
+        <!-- all biquads set to passthrough-->
+        <ctl name="IIR1 Band1" id="0" value="268435456" />
+        <ctl name="IIR1 Band1" id="1" value="0" />
+        <ctl name="IIR1 Band1" id="2" value="0" />
+        <ctl name="IIR1 Band1" id="3" value="0" />
+        <ctl name="IIR1 Band1" id="4" value="0" />
+        <ctl name="IIR2 Band1" id="0" value="268435456" />
+        <ctl name="IIR2 Band1" id="1" value="0" />
+        <ctl name="IIR2 Band1" id="2" value="0" />
+        <ctl name="IIR2 Band1" id="3" value="0" />
+        <ctl name="IIR2 Band1" id="4" value="0" />
+        <ctl name="IIR1 Band2" id="0" value="268435456" />
+        <ctl name="IIR1 Band2" id="1" value="0" />
+        <ctl name="IIR1 Band2" id="2" value="0" />
+        <ctl name="IIR1 Band2" id="3" value="0" />
+        <ctl name="IIR1 Band2" id="4" value="0" />
+        <ctl name="IIR2 Band2" id="0" value="268435456" />
+        <ctl name="IIR2 Band2" id="1" value="0" />
+        <ctl name="IIR2 Band2" id="2" value="0" />
+        <ctl name="IIR2 Band2" id="3" value="0" />
+        <ctl name="IIR2 Band2" id="4" value="0" />
+        <ctl name="IIR1 Band3" id="0" value="268435456" />
+        <ctl name="IIR1 Band3" id="1" value="0" />
+        <ctl name="IIR1 Band3" id="2" value="0" />
+        <ctl name="IIR1 Band3" id="3" value="0" />
+        <ctl name="IIR1 Band3" id="4" value="0" />
+        <ctl name="IIR2 Band3" id="0" value="268435456" />
+        <ctl name="IIR2 Band3" id="1" value="0" />
+        <ctl name="IIR2 Band3" id="2" value="0" />
+        <ctl name="IIR2 Band3" id="3" value="0" />
+        <ctl name="IIR2 Band3" id="4" value="0" />
+        <ctl name="IIR1 Band4" id="0" value="268435456" />
+        <ctl name="IIR1 Band4" id="1" value="0" />
+        <ctl name="IIR1 Band4" id="2" value="0" />
+        <ctl name="IIR1 Band4" id="3" value="0" />
+        <ctl name="IIR1 Band4" id="4" value="0" />
+        <ctl name="IIR2 Band4" id="0" value="268435456" />
+        <ctl name="IIR2 Band4" id="1" value="0" />
+        <ctl name="IIR2 Band4" id="2" value="0" />
+        <ctl name="IIR2 Band4" id="3" value="0" />
+        <ctl name="IIR2 Band4" id="4" value="0" />
+        <ctl name="IIR1 Band5" id="0" value="268435456" />
+        <ctl name="IIR1 Band5" id="1" value="0" />
+        <ctl name="IIR1 Band5" id="2" value="0" />
+        <ctl name="IIR1 Band5" id="3" value="0" />
+        <ctl name="IIR1 Band5" id="4" value="0" />
+        <ctl name="IIR2 Band5" id="0" value="268435456" />
+        <ctl name="IIR2 Band5" id="1" value="0" />
+        <ctl name="IIR2 Band5" id="2" value="0" />
+        <ctl name="IIR2 Band5" id="3" value="0" />
+        <ctl name="IIR2 Band5" id="4" value="0" />
+        <ctl name="IIR1 Enable Band1" value="1" />
+        <ctl name="IIR1 Enable Band2" value="1" />
+        <ctl name="IIR1 Enable Band3" value="1" />
+        <ctl name="IIR1 Enable Band4" value="1" />
+        <ctl name="IIR1 Enable Band5" value="1" />
+        <ctl name="IIR2 Enable Band1" value="1" />
+        <ctl name="IIR2 Enable Band2" value="1" />
+        <ctl name="IIR2 Enable Band3" value="1" />
+        <ctl name="IIR2 Enable Band4" value="1" />
+        <ctl name="IIR2 Enable Band5" value="1" />
+        <ctl name="IIR1 INP1 Volume" value="84" />
+        <ctl name="IIR2 INP1 Volume" value="84" />
+        <!-- IIR1 plugs back into RX1 mux and IIR2 plugs back into RX2 mux -->
+        <ctl name="RX1 MIX1 INP1" value="IIR1" />
+        <ctl name="RX7 MIX1 INP1" value="IIR2" />
+    
+        <!-- enable compander for both loudspeakers -->
+        <!-- according to wcd9320.c, COMP0 is attached to RX7 Mix1 -->
+        <!--  <ctl name="COMP0 Switch" value="1" /> -->
+        <!-- according to wcd9320.c, COMP1 is attached to RX1 Mix1 -->
+        <!-- compander results in audible coarse-step gain pumping in the earpiece -->
+        <!--  <ctl name="COMP1 Switch" value="1" /> -->
+    </path>
+
+
+    <path name="speaker">
+        <path name="speaker-stereo" />
+        <!-- RX1 corresponds to the earpiece loudspeaker -->
+        <ctl name="RX1 Digital Volume" value="90" />
+        <!-- RX7 corresponds to the main loudsepaker -->
+        <ctl name="RX7 Digital Volume" value="82" />
     </path>
 
     <path name="speaker-mic">
